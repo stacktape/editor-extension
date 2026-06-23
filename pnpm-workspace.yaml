@@ -1,0 +1,9 @@
+# pnpm 11 reads dependency build-script approvals from here.
+# esbuild ships its platform binary via an optional dependency, so its install script
+# is just a quick verification. @vscode/vsce-sign and keytar are only used by `vsce`
+# for extension signing / credential storage and are not needed to build or package
+# this extension — publishing can use a Personal Access Token (VSCE_PAT) instead.
+allowBuilds:
+  esbuild: true
+  '@vscode/vsce-sign': false
+  keytar: false
