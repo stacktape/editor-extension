@@ -21,9 +21,9 @@ const localize = nls.loadMessageBundle();
 export declare type CustomSchemaProvider = (uri: string) => Promise<string | string[]>;
 
 export enum MODIFICATION_ACTIONS {
-  'delete',
-  'add',
-  'deleteAll'
+  delete,
+  add,
+  deleteAll
 }
 
 export interface SchemaAdditions {

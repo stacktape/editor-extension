@@ -32,26 +32,26 @@ The code lens at the top of a config shows the version in use and warns when val
 
 Available from the editor title bar, the editor right-click menu, and the Command Palette when a Stacktape config file is open (including TypeScript configs, `*.stacktape.ts`):
 
-| Command | CLI |
-| --- | --- |
-| Stacktape: Validate config | `stacktape validate` |
-| Stacktape: Preview changes (diff) | `stacktape diff` |
-| Stacktape: Deploy stack | `stacktape deploy` |
+| Command                           | CLI                  |
+| --------------------------------- | -------------------- |
+| Stacktape: Validate config        | `stacktape validate` |
+| Stacktape: Preview changes (diff) | `stacktape diff`     |
+| Stacktape: Deploy stack           | `stacktape deploy`   |
 
 Commands prompt for the target stage and AWS region (remembered per workspace) and run in an integrated terminal, preferring a locally installed CLI (`node_modules/.bin`) and falling back to a global install on your `PATH`.
 
 ## Settings
 
-| Setting | Default | Description |
-| --- | --- | --- |
-| `stacktape.validate` | `true` | Enable/disable validation. |
-| `stacktape.hover` | `true` | Enable/disable hover documentation. |
-| `stacktape.completion` | `true` | Enable/disable autocompletion. |
-| `stacktape.validateReferences` | `true` | Flag references to resources/variables not defined in the file. Turn off if your config is split across multiple files. |
-| `stacktape.defaultStage` | `""` | Default stage prefilled for CLI commands. |
-| `stacktape.defaultRegion` | `""` | Default AWS region prefilled for CLI commands. |
-| `stacktape.profile` | `""` | AWS profile passed to CLI commands. |
-| `stacktape.trace.server` | `off` | Trace communication with the language server. |
+| Setting                        | Default | Description                                                                                                             |
+| ------------------------------ | ------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `stacktape.validate`           | `true`  | Enable/disable validation.                                                                                              |
+| `stacktape.hover`              | `true`  | Enable/disable hover documentation.                                                                                     |
+| `stacktape.completion`         | `true`  | Enable/disable autocompletion.                                                                                          |
+| `stacktape.validateReferences` | `true`  | Flag references to resources/variables not defined in the file. Turn off if your config is split across multiple files. |
+| `stacktape.defaultStage`       | `""`    | Default stage prefilled for CLI commands.                                                                               |
+| `stacktape.defaultRegion`      | `""`    | Default AWS region prefilled for CLI commands.                                                                          |
+| `stacktape.profile`            | `""`    | AWS profile passed to CLI commands.                                                                                     |
+| `stacktape.trace.server`       | `off`   | Trace communication with the language server.                                                                           |
 
 ## Requirements
 

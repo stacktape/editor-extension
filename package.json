@@ -1,32 +1,28 @@
 {
   "name": "vscode-stacktape",
   "displayName": "Stacktape",
+  "version": "1.0.0",
   "description": "Validation, autocomplete & more for Stacktape configuration files.",
+  "categories": [
+    "Linters",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "autocompletion",
+    "stacktape",
+    "validation",
+    "yaml"
+  ],
+  "bugs": "https://github.com/stacktape/stacktape/issues",
+  "license": "MIT",
   "author": "Stacktape",
   "contributors": [],
-  "license": "MIT",
-  "version": "1.0.0",
-  "publisher": "stacktape",
-  "preview": false,
-  "bugs": "https://github.com/stacktape/stacktape/issues",
   "repository": {
     "type": "git",
     "url": "https://github.com/stacktape/editor-extension"
   },
-  "icon": "static/stacktape-logo.png",
-  "packageManager": "pnpm@11.7.0",
-  "engines": {
-    "vscode": "^1.82.0"
-  },
+  "publisher": "stacktape",
   "main": "./dist/extension/index.js",
-  "categories": [
-    "Programming Languages",
-    "Linters"
-  ],
-  "activationEvents": [
-    "onLanguage:stacktape",
-    "workspaceContains:**/*{stacktape,stp}*.{yml,yaml}"
-  ],
   "scripts": {
     "build": "node scripts/build.mjs",
     "build:dev": "node scripts/build.mjs --dev",
@@ -38,12 +34,44 @@
     "vs:publish": "pnpm build && vsce publish --no-dependencies",
     "vs:login": "vsce login stacktape"
   },
-  "keywords": [
-    "stacktape",
-    "yaml",
-    "autocompletion",
-    "validation"
-  ],
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "jsonc-parser": "^3.3.1",
+    "micromatch": "^4.0.8",
+    "pluralize": "^8.0.0",
+    "vscode-json-languageservice": "^4.2.1",
+    "vscode-languageclient": "7.0.0",
+    "vscode-languageserver": "^9.0.1",
+    "vscode-languageserver-protocol": "^3.17.5",
+    "vscode-languageserver-textdocument": "^1.0.12",
+    "vscode-languageserver-types": "^3.17.5",
+    "vscode-nls": "^5.2.0",
+    "vscode-uri": "^3.0.8",
+    "yaml-language-server-parser": "0.1.3-fa8245c.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/micromatch": "^4.0.9",
+    "@types/node": "^20.14.0",
+    "@types/pluralize": "^0.0.33",
+    "@types/vscode": "^1.82.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "@vscode/vsce": "^3.2.0",
+    "esbuild": "^0.25.0",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-array-func": "^4.0.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jest": "^28.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.6.0",
+    "prettier": "^2.8.8",
+    "source-map-support": "^0.5.21",
+    "typescript": "^5.6.0"
+  },
   "contributes": {
     "languages": [
       {
@@ -199,42 +227,14 @@
       ]
     }
   },
-  "dependencies": {
-    "js-yaml": "^4.1.0",
-    "jsonc-parser": "^3.3.1",
-    "micromatch": "^4.0.8",
-    "pluralize": "^8.0.0",
-    "vscode-json-languageservice": "^4.2.1",
-    "vscode-languageclient": "7.0.0",
-    "vscode-languageserver": "^9.0.1",
-    "vscode-languageserver-protocol": "^3.17.5",
-    "vscode-languageserver-textdocument": "^1.0.12",
-    "vscode-languageserver-types": "^3.17.5",
-    "vscode-nls": "^5.2.0",
-    "vscode-uri": "^3.0.8",
-    "yaml-language-server-parser": "0.1.3-fa8245c.0"
+  "activationEvents": [
+    "onLanguage:stacktape",
+    "workspaceContains:**/*{stacktape,stp}*.{yml,yaml}"
+  ],
+  "icon": "static/stacktape-logo.png",
+  "preview": false,
+  "engines": {
+    "vscode": "^1.82.0"
   },
-  "devDependencies": {
-    "@types/js-yaml": "^4.0.9",
-    "@types/micromatch": "^4.0.9",
-    "@types/node": "^20.14.0",
-    "@types/pluralize": "^0.0.33",
-    "@types/vscode": "^1.82.0",
-    "@typescript-eslint/eslint-plugin": "^8.0.0",
-    "@typescript-eslint/parser": "^8.0.0",
-    "@vscode/vsce": "^3.2.0",
-    "esbuild": "^0.25.0",
-    "eslint": "^8.57.1",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-array-func": "^4.0.0",
-    "eslint-plugin-eslint-comments": "^3.2.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jest": "^28.8.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-promise": "^6.6.0",
-    "prettier": "^2.8.8",
-    "source-map-support": "^0.5.21",
-    "typescript": "^5.6.0"
-  }
+  "packageManager": "pnpm@11.7.0"
 }

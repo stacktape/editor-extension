@@ -597,8 +597,8 @@ export class YAMLCompletion extends JSONCompletion {
                       typeof enumItem === 'number'
                         ? alphabet[idx]
                         : SUGGESTION_ORDER.includes(enumItem)
-                        ? alphabet[SUGGESTION_ORDER.indexOf(enumItem)]
-                        : 'ZZZ',
+                          ? alphabet[SUGGESTION_ORDER.indexOf(enumItem)]
+                          : 'ZZZ',
                     documentation: prettyDescription,
                     insertText: this.getInsertTextForValue(adjustedItem, separatorAfter, propertySchema.type),
                     insertTextFormat: InsertTextFormat.Snippet
@@ -1241,7 +1241,7 @@ export class YAMLCompletion extends JSONCompletion {
   }
 
   private isEOL(c: number): boolean {
-    return c === 0x0a /* LF */ || c === 0x0d /* CR */;
+    return c === 0x0a /* LF */ || c === 0x0d; /* CR */
   }
 
   private getDocumentationWithMarkdownText(documentation: string, insertText: string): string | MarkupContent {

@@ -49,11 +49,16 @@ cp.stdout.on('data', (d) => {
     const he = buf.indexOf('\r\n\r\n');
     if (he === -1) break;
     const m = /Content-Length: (\d+)/i.exec(buf.slice(0, he).toString());
-    if (!m) { buf = buf.slice(he + 4); continue; }
+    if (!m) {
+      buf = buf.slice(he + 4);
+      continue;
+    }
     const len = +m[1];
     const start = he + 4;
     if (buf.length < start + len) break;
-    try { msgs.push(JSON.parse(buf.slice(start, start + len).toString())); } catch {}
+    try {
+      msgs.push(JSON.parse(buf.slice(start, start + len).toString()));
+    } catch {}
     buf = buf.slice(start + len);
   }
 });
@@ -63,16 +68,35 @@ const send = (msg) => {
 };
 const uri = 'file:///smoke.stacktape.yml';
 
-send({ jsonrpc: '2.0', id: 1, method: 'initialize', params: { processId: process.pid, rootUri: null, capabilities: {} } });
+send({
+  jsonrpc: '2.0',
+  id: 1,
+  method: 'initialize',
+  params: { processId: process.pid, rootUri: null, capabilities: {} }
+});
 setTimeout(() => {
   send({ jsonrpc: '2.0', method: 'initialized', params: {} });
   send({ jsonrpc: '2.0', method: 'json/schemaAssociations', params: [{ fileMatch: ['/*stacktape.yml'], uri: null }] });
-  send({ jsonrpc: '2.0', method: 'textDocument/didOpen', params: { textDocument: { uri, languageId: 'stacktape', version: 1, text: TEXT } } });
+  send({
+    jsonrpc: '2.0',
+    method: 'textDocument/didOpen',
+    params: { textDocument: { uri, languageId: 'stacktape', version: 1, text: TEXT } }
+  });
 }, 500);
 setTimeout(() => {
-  send({ jsonrpc: '2.0', id: 2, method: 'textDocument/definition', params: { textDocument: { uri }, position: refPos } });
+  send({
+    jsonrpc: '2.0',
+    id: 2,
+    method: 'textDocument/definition',
+    params: { textDocument: { uri }, position: refPos }
+  });
   send({ jsonrpc: '2.0', id: 3, method: 'textDocument/hover', params: { textDocument: { uri }, position: refPos } });
-  send({ jsonrpc: '2.0', id: 4, method: 'textDocument/completion', params: { textDocument: { uri }, position: complPos } });
+  send({
+    jsonrpc: '2.0',
+    id: 4,
+    method: 'textDocument/completion',
+    params: { textDocument: { uri }, position: complPos }
+  });
 }, 5000);
 setTimeout(() => {
   cp.kill();

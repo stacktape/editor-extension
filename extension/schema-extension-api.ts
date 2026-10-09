@@ -12,8 +12,8 @@ interface SchemaContributorProvider {
 }
 
 export enum MODIFICATION_ACTIONS {
-  'delete',
-  'add'
+  delete,
+  add
 }
 
 export interface SchemaAdditions {
