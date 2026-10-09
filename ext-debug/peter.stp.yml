@@ -1,0 +1,18 @@
+directives:
+  - name: getDate
+    filePath: directives/typescript-directives.ts:getDate
+
+  - name: getParamsInObject
+    filePath: directives/javascript-directives.js:getParamsInObject
+
+  - name: getRandomNumber
+    filePath: directives/python-directives.py
+
+  - name: sillyPythonDirective
+    filePath: directives/python-directive-test.py
+
+  - name: fileDecider
+    filePath: directives/typescript-directives.ts:decideFile
+
+
+

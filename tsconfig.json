@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "lib": ["esnext"],
+    "moduleResolution": "node",
+    "module": "CommonJS",
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noImplicitThis": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "noEmit": true
+  },
+  "include": ["scripts", "yaml-language-server", "extension"]
+}

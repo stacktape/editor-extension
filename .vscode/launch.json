@@ -1,0 +1,35 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // Builds the extension (dev) and opens a second VS Code window with the examples/
+      // folder. Other extensions are disabled for a clean, isolated test.
+      "name": "Launch Extension (examples)",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": [
+        "${workspaceRoot}/examples",
+        "--extensionDevelopmentPath=${workspaceRoot}",
+        "--disable-extensions"
+      ],
+      "sourceMaps": true,
+      "outFiles": ["${workspaceRoot}/dist/**/*.js"],
+      "preLaunchTask": "build-sources",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      // Same, but keeps your installed extensions enabled — use this to confirm we
+      // coexist with the official YAML extension (redhat.vscode-yaml).
+      "name": "Launch Extension (with your installed extensions)",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": ["${workspaceRoot}/examples", "--extensionDevelopmentPath=${workspaceRoot}"],
+      "sourceMaps": true,
+      "outFiles": ["${workspaceRoot}/dist/**/*.js"],
+      "preLaunchTask": "build-sources",
+      "internalConsoleOptions": "neverOpen"
+    }
+  ]
+}
